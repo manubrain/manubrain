@@ -1,0 +1,56 @@
+version: '4'
+name: manubrain
+services:
+  node-red:
+      build:
+        context: .
+        dockerfile: ./nodered_dockerfile
+      restart: unless-stopped
+      hostname: node-red
+      ports:
+        - "1880:1880"
+      environment:
+        - TZ=Europe/Berlin
+        - SERVICE_NAME=node-red
+      volumes:
+        - ./data/nodered:/data
+ 
+  influxdb: 
+    image: influxdb:latest
+    restart: unless-stopped
+    hostname: influxdb
+    ports:
+      - "8000:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_USERNAME=root
+      - DOCKER_INFLUXDB_INIT_PASSWORD=verysecret
+    volumes:
+      - ./data/influxdb:/var/lib/influxdb2
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    hostname: grafana
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./data/grafana:/export/share/lib/grafana
+
+  chronograf:
+    image: chronograf
+    restart: unless-stopped
+    hostname: chronograf
+    ports:
+      - "2010:2010"
+
+  jupyter:
+    image: jupyter/datascience-notebook
+    restart: unless-stopped
+    hostname: jupyter
+    ports:
+      - "8200:8888"
+    environment:
+      - INFLUXDB_TOKEN=hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
+    volumes: 
+      - ./data/jupyter:/home/jovyan/work
+    command: bash -c "pip install influxdb-client && jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password='' --no-browser --allow-root"

@@ -1,1 +1,62 @@
-# manubrain
+# ManuBrain
+## Credentials
+### Grafana
+user: 		admin
+password: 	admin
+
+### Influxdb
+username:	root
+password:	verysecret
+token:      hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
+
+The token is also stored as an environment variable called `INFLUXDB_TOKEN` in the Jupyter Notebook. You can access it in a python script as follows:
+```
+import os
+print(os.environ['INFLUXDB_TOKEN'])
+```
+
+To establish a connection to the InfluxDB from python use the following stub:
+```
+from influxdb_client import InfluxDBClient
+client = InfluxDBClient(url="http://influxdb:8083", token=os.environ['INFLUXDB_TOKEN'], org="manubrain")
+```
+
+An end-to-end script that establishes a connection, writes some data and reads it back from the InfluxDB is as follows:
+```
+# CONFIGURATION
+import influxdb_client, os, time
+from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client.client.write_api import SYNCHRONOUS
+
+token = os.environ.get("INFLUXDB_TOKEN")
+org = "manubrain"
+url = "http://influxdb:8086" # we must use the port 8086 here as we are inside the container (8000 is only from external)
+
+client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
+
+# WRITE DATA
+bucket="test"  # create buckets at http://localhost:8000/
+
+write_api = client.write_api(write_options=SYNCHRONOUS)
+   
+for value in range(5):
+  point = (
+    Point("measurement1")
+    .tag("tagname1", "tagvalue1")
+    .field("field1", value)
+  )
+  write_api.write(bucket=bucket, org="manubrain", record=point)
+  time.sleep(1) # separate points by 1 second
+
+# READ DATA
+query_api = client.query_api()
+
+query = """from(bucket: "test")
+ |> range(start: -10m)
+ |> filter(fn: (r) => r._measurement == "measurement1")"""
+tables = query_api.query(query, org="manubrain")
+
+for table in tables:
+  for record in table.records:
+    print(record)
+```
