@@ -11,13 +11,13 @@
 - Grafana: [http://localhost:3000](http://localhost:3000)
 
 ## Grafana
-- User:     admin
-- Password: admin
+- User:     `admin`
+- Password: `admin`
 
 ## Influxdb
-- Username: root
-- Password: verysecret
-- Token:    hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
+- Username: `root`
+- Password: `verysecret`
+- Token:    `hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==`
 
 The token is also stored as an environment variable called `INFLUXDB_TOKEN` in the Jupyter Notebook. You can access it in a python script as follows:
 ```
