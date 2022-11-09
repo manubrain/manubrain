@@ -33,7 +33,8 @@ org = "manubrain"
 url = "http://influxdb:8086" # we must use the port 8086 here as we are inside the container (8000 is only from external)
 
 client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
-
+```
+```
 # WRITE DATA
 bucket="test"  # create buckets at http://localhost:8000/
 
@@ -47,7 +48,8 @@ for value in range(5):
   )
   write_api.write(bucket=bucket, org="manubrain", record=point)
   time.sleep(1) # separate points by 1 second
-
+```
+```
 # READ DATA
 query_api = client.query_api()
 
