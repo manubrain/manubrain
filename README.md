@@ -1,12 +1,12 @@
 # ManuBrain
 ## Grafana
-user: 		admin
-password: 	admin
+- user: 		   admin
+- password: 	admin
 
 ## Influxdb
-username:	root
-password:	verysecret
-token:      hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
+- username:    root
+- password:	   verysecret
+- token:       hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
 
 The token is also stored as an environment variable called `INFLUXDB_TOKEN` in the Jupyter Notebook. You can access it in a python script as follows:
 ```
