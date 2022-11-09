@@ -36,13 +36,6 @@ services:
     volumes: 
       - ./data/grafana:/export/share/lib/grafana
 
-  chronograf:
-    image: chronograf
-    restart: unless-stopped
-    hostname: chronograf
-    ports:
-      - "2010:2010"
-
   jupyter:
     image: jupyter/datascience-notebook
     restart: unless-stopped
