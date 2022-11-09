@@ -1,4 +1,16 @@
 # ManuBrain
+## Setup
+1. Install [Docker Compose](https://docs.docker.com/compose/install/)
+2. Clone the repository and navigate into its root directory.
+3. Run: `docker compose up`
+
+## Tools
+- InfluxDB: [http://localhost:8000](http://localhost:8000)
+- Jupyter: [http://localhost:8200](http://localhost:8000)
+- NodeRed: [http://localhost:1880](http://localhost:1880)
+- Grafana: [http://localhost:3000](http://localhost:3000)
+- Chronograph: [http://localhost:2010](http://localhost:2010)
+
 ## Grafana
 - User: 		   admin
 - Password: 	admin
