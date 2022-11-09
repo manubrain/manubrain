@@ -1,10 +1,9 @@
 # ManuBrain
-## Credentials
-### Grafana
+## Grafana
 user: 		admin
 password: 	admin
 
-### Influxdb
+## Influxdb
 username:	root
 password:	verysecret
 token:      hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
