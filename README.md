@@ -9,7 +9,6 @@
 - Jupyter: [http://localhost:8200](http://localhost:8200)
 - NodeRed: [http://localhost:1880](http://localhost:1880)
 - Grafana: [http://localhost:3000](http://localhost:3000)
-- Chronograph: [http://localhost:2010](http://localhost:2010)
 
 ## Grafana
 - User: 		   admin
