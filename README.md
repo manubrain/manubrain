@@ -14,6 +14,7 @@ import os
 print(os.environ['INFLUXDB_TOKEN'])
 ```
 
+## Jupyter Notebook
 To establish a connection to the InfluxDB from python use the following stub:
 ```
 from influxdb_client import InfluxDBClient
