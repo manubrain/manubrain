@@ -27,7 +27,7 @@ print(os.environ['INFLUXDB_TOKEN'])
 ## Anomaly Detection
 The jupyter notebook under data/jupyter/anomaly_detection.ipynb can be used for anomaly detection on data from the InfluxDB. The notebook is applied on the sine dataset. In order to apply it to new data from InfluxDB, in the first cell of the notebook replace the necessary information of organisation, bucket, measurement and field names. 
 
-If desired, one may also update the time_window and the epochs, which is used for training.
+If desired, one may also update the time_window and the epochs, which are used for training.
 
 
 ## Jupyter Notebook
