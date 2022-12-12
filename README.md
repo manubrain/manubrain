@@ -25,10 +25,16 @@ import os
 print(os.environ['INFLUXDB_TOKEN'])
 ```
 ## Anomaly Detection
+At the moment, the ManuBrain detect repository does not come preinstalled with this platform. To install it, we recommend using the Jupyter terminal and executing:
+```
+git clone https://github.com/manubrain/detect
+cd detect
+pip install -e .
+```
+
 The jupyter notebook under data/jupyter/anomaly_detection.ipynb can be used for anomaly detection on data from the InfluxDB. The notebook is applied on the sine dataset. In order to apply it to new data from InfluxDB, in the first cell of the notebook replace the necessary information of organisation, bucket, measurement and field names. The genereated anomaly score for the datastream can then be found under bucket-->anomalies-->tcn-->anomaly_score.
 
 If desired, one may also update the time_window and the epochs, which are used for training.
-
 
 ## Jupyter Notebook
 To establish a connection to the InfluxDB from python use the following stub:
