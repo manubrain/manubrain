@@ -40,11 +40,14 @@ services:
     image: jupyter/datascience-notebook
     restart: unless-stopped
     hostname: jupyter
+    user: root
     ports:
       - "8200:8888"
     environment:
       - INFLUXDB_TOKEN=hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
+      - GRANT_SUDO=yes
+      - SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
     volumes: 
       - ./data/jupyter/notebooks:/home/jovyan/work
       - ./data/jupyter/detect_repo:/home/jovyan/detect
-    command: bash -c "pip install influxdb-client && jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password='' --no-browser --allow-root"
+    command: bash -c "start-notebook.sh --ip='*' --ServerApp.token='' --ServerApp.password='' --no-browser --allow-root"
