@@ -45,5 +45,6 @@ services:
     environment:
       - INFLUXDB_TOKEN=hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==
     volumes: 
-      - ./data/jupyter:/home/jovyan/work
+      - ./data/jupyter/notebooks:/home/jovyan/work
+      - ./data/jupyter/detect_repo:/home/jovyan/detect
     command: bash -c "pip install influxdb-client && jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password='' --no-browser --allow-root"

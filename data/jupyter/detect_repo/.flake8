@@ -1,0 +1,44 @@
+#########################
+# Flake8 Configuration  #
+# (.flake8)             #
+#########################
+[flake8]
+ignore =
+    S301 # pickle
+    S403 # pickle
+    S404
+    S603
+    W503 # Line break before binary operator (flake8 is wrong)
+    E203 # Ignore the spaces black puts before columns.
+    E402 # allow path extensions for testing.
+    DAR101
+    DAR201
+    N400 # flake and pylance disagree on linebreaks in strings.
+    D100 #D10x - documentation is already looked at by doc-coverage
+    D101
+    D102
+    D103
+    D104
+    D105
+    D107
+exclude =
+    .tox,
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    build,
+    dist,
+    tests/fixtures/*,
+    *.pyc,
+    *.egg-info,
+    .cache,
+    .eggs,
+    data.
+    src/freqdect/baselines/*
+max-line-length = 120
+max-complexity = 20
+import-order-style = pycharm
+application-import-names =
+    freqdect
+    tests
+format = ${cyan}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
