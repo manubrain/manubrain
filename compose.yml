@@ -8,7 +8,7 @@ services:
       restart: unless-stopped
       hostname: node-red
       ports:
-        - "1880:1880"
+        - "1980:1880"
       environment:
         - TZ=Europe/Berlin
         - SERVICE_NAME=node-red

@@ -7,7 +7,7 @@
 ## Tools
 - InfluxDB: [http://localhost:8000](http://localhost:8000)
 - Jupyter: [http://localhost:8200](http://localhost:8200)
-- NodeRed: [http://localhost:1880](http://localhost:1880)
+- NodeRed: [http://localhost:1980](http://localhost:1980)
 - Grafana: [http://localhost:3000](http://localhost:3000)
 
 ## Grafana
