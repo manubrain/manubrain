@@ -14,7 +14,22 @@
 - User:     `admin`
 - Password: `admin`
 
-## Influxdb
+To access the `InfluxDB` instance follow the following steps in `Grafana`:
+1. Add `InfluxDB` as a new data source
+   - `Settings` -> `Data sources` -> `Add data source`
+   - Select `InfluxDB`
+2. Inside the configuration window for the new data source make the following selection
+   - `Query Language` -> `Flux`
+   - `URL` -> `http://influxdb:8086`
+   - `Auth` -> Disable all options
+   - `InfluxDB Details`
+      - `Organization` -> `manubrain`
+      - `Token` -> `hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==`
+      - `Default Bucket` -> `manubrain`
+3. Click `Save & test`
+4. If everything worked message like `datasource is working. 5 buckets found` should appear
+
+## Influxdbin
 - Username: `root`
 - Password: `verysecret`
 - Token:    `hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==`
