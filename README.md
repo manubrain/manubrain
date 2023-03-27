@@ -29,7 +29,7 @@ To access the `InfluxDB` instance follow the following steps in `Grafana`:
 3. Click `Save & test`
 4. If everything worked message like `datasource is working. 5 buckets found` should appear
 
-## Influxdbin
+## InfluxDB
 - Username: `root`
 - Password: `verysecret`
 - Token:    `hfO13-DJp8_gMihghVzheI-azZAOGm57UFgwHwa3zioWnsE_z_31_85nVxWr6t9RrA--LCGWDudIAW6ZAal2Cw==`
